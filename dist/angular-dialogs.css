@@ -1,0 +1,27 @@
+
+/******************************************************************************************/
+/* STYLES FOR DIALOGS                                                                     */
+/******************************************************************************************/
+.modal-error .modal-header {
+	background: #D2322D;
+	color: #FFFFFF;
+}
+.modal-error .modal-body {
+	color: #A9211E;
+}
+.modal-info .modal-header {
+	background: #428BCA;
+	color: #FFFFFF;
+}
+.modal-success .modal-header {
+	background: #5CB85C;
+	color: #FFFFFF;
+}
+.modal-warning .modal-header {
+	background: #F0AD4E;
+	color: #FFFFFF;
+}
+.modal-confirmation .modal-header {
+	background: #286090;
+	color: #FFFFFF;
+}

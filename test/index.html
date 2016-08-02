@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="dialogsApp">
+<head>
+	<title>Angular dialogs demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script type="text/javascript" src="lib/ui-bootstrap-tpls-2.0.1.min.js"></script>
+</head>
+
+<body>
+	<div id="wrapper" ng-controller="MainController as controller">
+		<div>
+			<h1>Angular dialogs example</h1>
+			<p>
+				This demo shows the usage of the different types of dialog with angular.
+				Note that dialogs are easy to use and customizable, where the available options are:
+				<ul>
+					<li>message</li>
+					<li>title</li>
+					<li>icon</li>
+					<li>button</li>
+					<li>reportButton</li>
+					<li>spin</li>
+					<li>closable</li>
+				</ul>
+				This demo uses Bootstrap 3.3.5, Angular 1.5.5 and Angular-UI-Bootstrap 2.0.1.
+			</p>
+		</div>
+		<h2>Default dialogs</h2>
+		<div>
+			<button type="button" class="btn btn-default" ng-click='showDefaultDialog();'>Default dialog</button>
+			<button type="button" class="btn btn-primary" ng-click='showConfirmationDialog();'>Confirmation dialog</button>
+		</div>
+		<h2>Success dialogs</h2>
+		<div>
+			<button type="button" class="btn btn-success" ng-click='showSuccessDialog();'>Success dialog</button>
+		</div>
+		<h2>Info dialogs</h2>
+		<div>
+			<button type="button" class="btn btn-info" ng-click='showInfoDialog();'>Info dialog</button>
+			<button type="button" class="btn btn-info" ng-click='showWaitDialog();'>Wait dialog</button>
+		</div>
+		<h2>Warning and error dialogs</h2>
+		<div>
+			<button type="button" class="btn btn-warning" ng-click='showWarningDialog();'>Warning</button>
+		</div>
+		<div style="margin-top:10px;">
+			<button type="button" class="btn btn-danger" ng-click='showErrorDialog();'>Error message</button>
+			<button type="button" class="btn btn-danger" ng-click='showErrorDialog2();'>Error with report</button>
+		</div>
+	</div><!-- /#wrapper -->
+</body>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="angular-dialogs.min.js"></script>
+<link rel="stylesheet" href="angular-dialogs.min.css">
+</html>
