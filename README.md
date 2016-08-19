@@ -12,7 +12,7 @@ app.controller('TestController', function ($dialogs) {
 }
 ```
 
-A more complete example can be found at JSFiddle: [https://jsfiddle.net/kLtryf9u/9/](https://jsfiddle.net/kLtryf9u/9/)
+A more complete example can be found at JSFiddle: [https://jsfiddle.net/kLtryf9u/9/](https://jsfiddle.net/kLtryf9u/11/)
 
 ## Changelog
 ### v0.9
