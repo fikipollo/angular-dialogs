@@ -1,7 +1,7 @@
 (function() {
 	var app = angular.module('dialogsApp', ['ang-dialogs']);
 
-	app.controller('MainController', function ($scope, $dialogs) {
+	app.controller('MainController', function ($scope, $dialogs, $timeout) {
 
 		$scope.dialogs = $dialogs;
 
@@ -22,11 +22,8 @@
 		};
 
 		$scope.showWaitDialog = function(){
-			$dialogs.showInfoDialog("This process may take few minutes, be patient!", {
-				title: "Your request is being processed.",
-				spin:true,
-				icon: "glyphicon glyphicon-time"
-			});
+			$dialogs.showWaitDialog("This process may take few minutes, be patient!", {title: "Your request is being processed."});
+			$timeout($dialogs.closeMessage, 3000);
 		};
 
 		$scope.showWarningDialog = function(){

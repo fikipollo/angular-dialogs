@@ -9,6 +9,7 @@
 		function( $uibModal, $templateCache) {
 			this.modalInstance = null;
 			this.modalData = null;
+			var me = this;
 
 			this.getModalInstance = function(){
 				return this.modalInstance;
@@ -60,6 +61,19 @@
 				this.showMessage(message, config);
 			};
 
+			this.showWaitDialog = function(message, config) {
+				config = ((config === undefined) ? {} : config);
+				config.messageType = "wait";
+				config.icon = (config.icon || 'glyphicon glyphicon-time');
+				config.button = (config.button || false);
+				config.spin = true;
+				this.showMessage(message, config);
+			};
+
+			this.closeMessage = function(option){
+				me.getModalInstance().close(option||'ok');
+			};
+
 			this.showMessage= function(message, config){
 				var callback = (config.callback || null);
 				var logMessage = (config.logMessage || message);
@@ -86,12 +100,15 @@
 					console.warn(this.logFormat() + logMessage);
 				} else if (messageType === "info") {
 					console.info(this.logFormat() + logMessage);
+				} else if (messageType === "wait") {
+					console.info(this.logFormat() + logMessage);
 				} else { //success
 					console.info(this.logFormat() + logMessage);
 				}
 
-				var modalInstance = $uibModal.open({
+				this.modalInstance = $uibModal.open({
 					template: $templateCache.get('error.dialog.tpl.html'),
+					backdrop : (config.closable?true:'static'),
 					controller: [
 						'$scope',
 						'$uibModalInstance',
@@ -119,7 +136,7 @@
 					controllerAs: 'controller'
 				});
 
-				modalInstance.result.then(
+				this.modalInstance.result.then(
 					function (result) { //Close
 						if(callback){
 							callback(result)
@@ -150,7 +167,10 @@
 			'    </h4>'+
 			'  </div>'+
 			'  <div class="modal-body" >'+
-			'    <p>{{config.message}}</p>'+
+			'    <p>'+
+			'        <span ng-if="config.spin" class="glyphicon glyphicon-refresh spinning" style=" float: left; padding: 3px; margin-right: 10px; "></span>' +
+			'        {{config.message}}'+
+			'    </p>'+
 			'  </div>'+
 			'  <div class="modal-footer">'+
 			'    <button type="button" class="btn btn-warning" ' +
