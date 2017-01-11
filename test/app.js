@@ -22,11 +22,15 @@
 		};
 
 		$scope.showWaitDialog = function(){
-			$dialogs.showInfoDialog("This process may take few minutes, be patient!", {
+			$dialogs.showWaitDialog("This process may take few seconds, be patient!", {
 				title: "Your request is being processed.",
 				spin:true,
 				icon: "glyphicon glyphicon-time"
 			});
+			setTimeout(function(){
+				$dialogs.closeDialog();
+			}, 2000
+			);
 		};
 
 		$scope.showWarningDialog = function(){
