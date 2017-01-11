@@ -12,9 +12,16 @@ app.controller('TestController', function ($dialogs) {
 }
 ```
 
-A more complete example can be found at JSFiddle: [https://jsfiddle.net/kLtryf9u/9/](https://jsfiddle.net/kLtryf9u/9/)
+A more complete example can be found at JSFiddle: [https://jsfiddle.net/kLtryf9u/](https://jsfiddle.net/kLtryf9u/)
 
 ## Changelog
+### v0.92
+* Close dialogs -> close most recent dialogs, close by id or close by type
+* Added spinning icon for wait dialog
+
+### v0.91
+* Wait dialogs and spinning icons
+
 ### v0.9
 * First public version.
 * Supports different types of dialogs: default, confirmation, success, info, warning and error dialogs.
