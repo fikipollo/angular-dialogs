@@ -3,6 +3,13 @@
 Pure AngularJS component for using dialogs.
 This service has been tested using Twitter Bootstrap 3.3.5, AngularJS 1.5.5 and Angular-UI-Bootstrap 2.5.0.
 
+## Content
++ [Getting Started](#getting-started)
++ [Examples](#examples)
++ [Supported types of dialogs](#supported-types-of-dialogs)
++ [Available options](#available-options)
++ [Changelog](#changelog)
+
 ## Getting Started
 + Install with bower (comming soon), `bower install angular-dialogs --save`
 
@@ -60,6 +67,12 @@ A simple dialog with a message, no colors.
 ```javascript
 $dialogs.showDefaultDialog("AngularJS rocks!", {title: "Hello"});
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30052065-979ce4c4-9224-11e7-991d-fac14200d1a4.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Confirmation dialogs
 A Yes/No dialog with a message. Many options are available to change the default appearance (e.g. the text for the buttons), and a callback function can be specified which will be executed when the user chooses an option.
@@ -71,6 +84,12 @@ $dialogs.showConfirmationDialog("Please confirm", {
 	}
 });
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30052073-9f9e8a9c-9224-11e7-97bd-fb643ec91bdd.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Success dialogs
 A simple success message. Again, using options you can change the default appearance and behaviour (e.g. an auto-close countdown).
@@ -79,6 +98,12 @@ $dialogs.showSuccessDialog("The process finished successfully.", {
 	closeTimeout: 10
 });
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30052275-3e66b140-9225-11e7-9057-e484193e0b93.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Info dialogs
 A dialog showing some useful information.
@@ -87,6 +112,12 @@ $dialogs.showInfoDialog("This is an important message.", {
 	buttonCloseText : 'OK, I understand.'
 });
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30052438-bdac20e8-9225-11e7-99e1-548d7d1554e0.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Wait dialogs
 A wait dialog with an animated loading icon. These dialogs do not show any button by default (but could be added). You can programmatically close them using the _closeDialog_ function (see below).
@@ -101,12 +132,24 @@ setTimeout(function(){
 	$dialogs.closeDialog(); //This will close the last opened dialog
 }, 3000);
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30052686-96cc7544-9226-11e7-8ffc-95e09fe59a9c.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Warning dialogs
 A dialog showing some warning information.
 ```javascript
 $dialogs.showWarningDialog("It's time to go home"});
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30059139-308a540a-923e-11e7-8994-9eeb9a57c0d2.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Error dialogs
 A dialog showing error messages. Using the available options you can change the default appearance and behaviour (e.g. adding a "Report" button that could send the error message to the developers).
@@ -120,6 +163,12 @@ $dialogs.showErrorDialog("An error occurred. Please send the report.", {
 	}
 });
 ```
+<img src="https://user-images.githubusercontent.com/11427394/30059145-35ce8e36-923e-11e7-8659-5a6e3b330e8c.png" style="
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 440px;
+">
 
 #### Other dialogs
 If none of the previous functions fits to you, you can open a dialog using the following function:
