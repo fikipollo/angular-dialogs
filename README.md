@@ -28,22 +28,22 @@ In your web page:
 
 And in your app.js:
 ```javascript
-	var app = angular.module('myApp', ['ang-dialogs']);
+var app = angular.module('myApp', ['ang-dialogs']);
 ```
 
 ## Examples
 A simple example of the usage would be:
 
 ```javascript
-	var app = angular.module('myApp', ['ang-dialogs']);
-	app.controller('myController', function ($dialogs) {
-		this.foo = function(){
-			$dialogs.showInfoDialog("This is a dialog!", {
-				title: "Hello world!",
-				closeTimeout: 10
-			});
-		}
+var app = angular.module('myApp', ['ang-dialogs']);
+app.controller('myController', function ($dialogs) {
+	this.foo = function(){
+		$dialogs.showInfoDialog("This is a dialog!", {
+			title: "Hello world!",
+			closeTimeout: 10
+		});
 	}
+}
 ```
 
 You can find a bunch of more complete examples <a href="https://goo.gl/3xvF4b" target="_blank">here</a>.
