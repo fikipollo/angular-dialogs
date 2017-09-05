@@ -3,6 +3,13 @@
 Pure AngularJS component for using dialogs.
 This service has been tested using Twitter Bootstrap 3.3.5, AngularJS 1.5.5 and Angular-UI-Bootstrap 2.5.0.
 
+## Content
++ [Getting Started](#getting-started)
++ [Examples](#examples)
++ [Supported types of dialogs](#supported-types-of-dialogs)
++ [Available options](#available-options)
++ [Changelog](#changelog)
+
 ## Getting Started
 + Install with bower (comming soon), `bower install angular-dialogs --save`
 
