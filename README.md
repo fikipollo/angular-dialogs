@@ -46,7 +46,7 @@ A simple example of the usage would be:
 	}
 ```
 
-You can find a bunch of more complete examples [here](https://goo.gl/3xvF4b).
+You can find a bunch of more complete examples [here](https://goo.gl/3xvF4b){:target="_blank"}.
 
 ## Supported types of dialogs
 This service includes some predefined dialogs that you can use, however many options are available for customizing your dialogs.
