@@ -1,4 +1,4 @@
-/*! Angular dialogs v0.92 | Rafael Hernandez <https://github.com/fikipollo> | MIT license */
+/*! Angular dialogs v0.93 | Rafael Hernandez <https://github.com/fikipollo> | MIT license */
 
 /******************************************************************************************/
 /* STYLES FOR DIALOGS                                                                     */
@@ -18,7 +18,7 @@
 	background: #5CB85C;
 	color: #FFFFFF;
 }
-.modal-warning .modal-header {
+.modal-warn .modal-header {
 	background: #F0AD4E;
 	color: #FFFFFF;
 }
