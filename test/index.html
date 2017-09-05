@@ -3,54 +3,128 @@
 <head>
 	<title>Angular dialogs demo</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-	<script type="text/javascript" src="lib/ui-bootstrap-tpls-2.0.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="angular-dialogs.min.js"></script>
+	<link rel="stylesheet" href="angular-dialogs.min.css">
+	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
-	<div id="wrapper" ng-controller="MainController as controller">
-		<div>
-			<h1>Angular dialogs example</h1>
-			<p>
-				This demo shows the usage of the different types of dialog with angular.
-				Note that dialogs are easy to use and customizable, where the available options are:
-				<ul>
-					<li>message</li>
-					<li>title</li>
-					<li>icon</li>
-					<li>button</li>
-					<li>reportButton</li>
-					<li>spin</li>
-					<li>closable</li>
-				</ul>
-				This demo uses Bootstrap 3.3.5, Angular 1.5.5 and Angular-UI-Bootstrap 2.0.1.
-			</p>
+	<div id="wrapper" ng-controller="MainController as controller" style="padding:20px 50px;">
+		<h1>Angular dialogs example</h1>
+		<div class="well well-lg">
+			<p>This demo shows the usage of the different types of dialog with AngularJS.</p>
+			<p>Note that dialogs are easy to use and customizable.</p>
+			<p>This demo uses Bootstrap 3.3.5, Angular 1.5.5 and Angular-UI-Bootstrap 2.5.0.</p>
+			<p>Find the latest version of the Angular dialogs component at <a href="https://github.com/fikipollo/angular-dialogs" target="_blank">GitHub</a>.
 		</div>
-		<h2>Default dialogs</h2>
-		<div>
+		<h4>Default dialog</h4>
+		<div class="panel" style="margin-top:10px;" ng-init="showCode1=false">
 			<button type="button" class="btn btn-default" ng-click='showDefaultDialog();'>Default dialog</button>
+			<a style="cursor:pointer; text-decoration:none;" ng-click="showCode1=!showCode1"> <span class="glyphicon glyphicon-eye-open"></span> Show code</a>
+			<pre ng-show="showCode1" style=" background: none; border: none; width: 800px; padding: 0; ">
+				<code class="hljs javascript">
+$dialogs.showDefaultDialog("AngularJS rocks!", {
+	title: "Hello",
+	closable:true
+});
+				</code>
+			</pre>
+		</div>
+		<h4>Default dialog</h4>
+		<div class="panel" style="margin-top:10px;" ng-init="showCode2=false">
 			<button type="button" class="btn btn-primary" ng-click='showConfirmationDialog();'>Confirmation dialog</button>
+			<a style="cursor:pointer; text-decoration:none;" ng-click="showCode2=!showCode2"> <span class="glyphicon glyphicon-eye-open"></span> Show code</a>
+			<pre ng-show="showCode2" style=" background: none; border: none; width: 800px; padding: 0; ">
+				<code class="hljs javascript">
+$dialogs.showConfirmationDialog("Please confirm that you want to destroy your computer.", {
+	title: "Destroy your computer?",
+	buttonOkText: 'Yes, please do it!',
+	buttonCancelText : 'Maybe later',
+	callback: function(option){
+		if(option === "ok"){
+			alert("Installing Windows Vista...");
+		}
+	}
+});
+				</code>
+			</pre>
 		</div>
-		<h2>Success dialogs</h2>
-		<div>
+		<h4>Success dialogs</h4>
+		<div class="panel" style="margin-top:10px;" ng-init="showCode3=false">
 			<button type="button" class="btn btn-success" ng-click='showSuccessDialog();'>Success dialog</button>
+			<a style="cursor:pointer; text-decoration:none;" ng-click="showCode3=!showCode3"> <span class="glyphicon glyphicon-eye-open"></span> Show code</a>
+			<pre ng-show="showCode3" style=" background: none; border: none; width: 800px; padding: 0; ">
+				<code class="hljs javascript">
+$dialogs.showSuccessDialog("Your account has been created!", {
+	title: "Success",
+	closeTimeout: 10
+});
+				</code>
+			</pre>
 		</div>
-		<h2>Info dialogs</h2>
-		<div>
+		<h4>Info dialogs</h4>
+		<div class="panel" style="margin-top:10px;" ng-init="showCode4=false">
 			<button type="button" class="btn btn-info" ng-click='showInfoDialog();'>Info dialog</button>
 			<button type="button" class="btn btn-info" ng-click='showWaitDialog();'>Wait dialog</button>
+			<a style="cursor:pointer; text-decoration:none;" ng-click="showCode4=!showCode4"> <span class="glyphicon glyphicon-eye-open"></span> Show code</a>
+			<pre ng-show="showCode4" style=" background: none; border: none; width: 800px; padding: 0; ">
+				<code class="hljs javascript">
+$dialogs.showInfoDialog("Your body has the correct number of holes in it. Don't make any more.", {
+	title: "Some useful information",
+	buttonCloseText : 'I\'ll remember, thanks.'
+});
+
+$dialogs.showWaitDialog("This process may take few seconds, be patient!", {
+	title: "Your request is being processed.",
+	spin:true,
+	icon: "glyphicon glyphicon-time"
+});
+
+//Close the dialog after 3 seconds
+setTimeout(function(){
+	$dialogs.closeDialog();
+}, 3000);
+				</code>
+			</pre>
 		</div>
-		<h2>Warning and error dialogs</h2>
-		<div>
-			<button type="button" class="btn btn-warning" ng-click='showWarningDialog();'>Warning</button>
-		</div>
-		<div style="margin-top:10px;">
-			<button type="button" class="btn btn-danger" ng-click='showErrorDialog();'>Error message</button>
-			<button type="button" class="btn btn-danger" ng-click='showErrorDialog2();'>Error with report</button>
+		<h4>Warning and Error dialogs</h4>
+		<div class="panel" style="margin-top:10px;" >
+			<div ng-init="showCode5=false">
+				<button type="button" class="btn btn-warning" ng-click='showWarningDialog();'>Warning</button>
+				<a style="cursor:pointer; text-decoration:none;" ng-click="showCode5=!showCode5"> <span class="glyphicon glyphicon-eye-open"></span> Show code</a>
+				<pre ng-show="showCode5" style=" background: none; border: none; width: 800px; padding: 0; ">
+					<code class="hljs javascript">
+$dialogs.showWarningDialog("You new a coffee now!", {title: "Alert!"});
+					</code>
+				</pre>
+			</div>
+			<div class="panel" style="margin-top:10px;" ng-init="showCode6=false">
+				<button type="button" class="btn btn-danger" ng-click='showErrorDialog();'>Error message</button>
+				<button type="button" class="btn btn-danger" ng-click='showErrorDialog2();'>Error with report</button>
+				<a style="cursor:pointer; text-decoration:none;" ng-click="showCode6=!showCode6"><span class="glyphicon glyphicon-eye-open"></span> Show code</a>
+				<pre ng-show="showCode6" style=" background: none; border: none; width: 800px; padding: 0; ">
+					<code class="hljs javascript">
+$dialogs.showErrorDialog("Something really bad happened :(", {title: "Error"});
+
+$dialogs.showErrorDialog("Something really bad happened. Please, send a report and we will fix it", {
+	title: "Alarm!",
+	reportButton: true,
+	reportButtonHandler: function(){
+		alert("Cool, thanks for the report!");
+	}
+});
+					</code>
+				</pre>
+			</div>
 		</div>
 	</div><!-- /#wrapper -->
 </body>
-<script type="text/javascript" src="app.js"></script>
-<script type="text/javascript" src="angular-dialogs.min.js"></script>
-<link rel="stylesheet" href="angular-dialogs.min.css">
 </html>

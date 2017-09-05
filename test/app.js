@@ -6,19 +6,37 @@
 		$scope.dialogs = $dialogs;
 
 		$scope.showDefaultDialog = function(){
-			$dialogs.showDefaultDialog("Your account has been created!", {title: "Alarm!"});
+			$dialogs.showDefaultDialog("AngularJS rocks!", {
+				title: "Hello",
+				closable:true
+			});
 		};
 
 		$scope.showConfirmationDialog = function(){
-			$dialogs.showConfirmationDialog("Are you sure?", {title: "Shutdown your computer?"});
+			$dialogs.showConfirmationDialog("Please confirm that you want to destroy your computer.", {
+				title: "Destroy your computer?",
+				buttonOkText: 'Yes, please do it!',
+				buttonCancelText : 'Maybe later',
+				callback: function(option){
+					if(option === "ok"){
+						alert("Installing Windows Vista...");
+					}
+				}
+			});
 		};
 
 		$scope.showSuccessDialog = function(){
-			$dialogs.showSuccessDialog("Your account has been created!", {title: "Alarm!"});
+			$dialogs.showSuccessDialog("Your account has been created!", {
+				title: "Success",
+				closeTimeout: 10
+			});
 		};
 
 		$scope.showInfoDialog = function(){
-			$dialogs.showInfoDialog("Your account has been created!", {title: "Alarm!"});
+			$dialogs.showInfoDialog("Your body has the correct number of holes in it. Don't make any more.", {
+				title: "Some useful information",
+				buttonCloseText : 'I\'ll remember, thanks.'
+			});
 		};
 
 		$scope.showWaitDialog = function(){
@@ -27,21 +45,27 @@
 				spin:true,
 				icon: "glyphicon glyphicon-time"
 			});
+			//Close the dialog after 3 seconds
 			setTimeout(function(){
 				$dialogs.closeDialog();
-			}, 2000
-			);
+			}, 3000);
 		};
 
 		$scope.showWarningDialog = function(){
-			$dialogs.showWarningDialog("Your account has been created!", {title: "Alarm!"});
+			$dialogs.showWarningDialog("You new a coffee now!", {title: "Alert!"});
 		};
 
 		$scope.showErrorDialog = function(){
-			$dialogs.showErrorDialog("Your account has been created!", {title: "Alarm!"});
+			$dialogs.showErrorDialog("Something really bad happened :(", {title: "Error"});
 		};
 		$scope.showErrorDialog2 = function(){
-			$dialogs.showErrorDialog("Your account has been created!", {title: "Alarm!", reportButton: true});
+			$dialogs.showErrorDialog("Something really bad happened. Please, send a report and we will fix it", {
+				title: "Alarm!",
+				reportButton: true,
+				reportButtonHandler: function(){
+					alert("Cool, thanks for the report!");
+				}
+			});
 		};
 	});
 })();
